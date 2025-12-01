@@ -1,9 +1,9 @@
 # vscode-portfolio
-[![Open is Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/itsnitinr/vscode-portfolio)
+[![Open is Visual Studio Code](https://portfolio-gray-alpha-43.vercel.app/projects)](https://portfolio-gray-alpha-43.vercel.app/projects)
 
 A Visual Studio Code themed developer portfolio website built with Next.js and deployed on Vercel.
 
-![vscode-portfolio banner](https://imgur.com/JXJ9mpO.gif)
+![vscode-portfolio banner](https://portfolio-gray-alpha-43.vercel.app/projects)
 
 ## Features Roadmap
 

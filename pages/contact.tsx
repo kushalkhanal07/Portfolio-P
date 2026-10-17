@@ -1,27 +1,31 @@
-import ContactCode from '@/components/ContactCode';
-
-import styles from '@/styles/ContactPage.module.css';
+import PageIntro from '@/components/PageIntro';
+import ContactCta from '@/components/sections/ContactCta';
+import { site } from '@/data/site';
 
 const ContactPage = () => {
   return (
-    <div className={styles.layout}>
-      <h1 className={styles.pageTitle}>Contact Me</h1>
-      <p className={styles.pageSubtitle}>
-        Feel free to reach out to me through any of the social platforms below.
-        I&apos;m always open to new opportunities and connections.
-      </p>
-      <div className={styles.container}>
-        <div className={styles.contactContainer}>
-          <ContactCode />
-        </div>
-      </div>
-    </div>
+    <>
+      <PageIntro
+        eyebrow="Contact"
+        title={
+          <>
+            Say <em>hello.</em>
+          </>
+        }
+        lead={`${site.availability}. Reach out about frontend roles, product work or a website you need built, and I’ll get back to you.`}
+      />
+      <ContactCta index="01" detailed />
+    </>
   );
 };
 
 export async function getStaticProps() {
   return {
-    props: { title: 'Contact' },
+    props: {
+      title: 'Contact',
+      description:
+        'Get in touch with Kushal Khanal, frontend developer in Kathmandu, Nepal, by email, GitHub, LinkedIn or social media.',
+    },
   };
 }
 

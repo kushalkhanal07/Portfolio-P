@@ -1,0 +1,142 @@
+.grid {
+  display: grid;
+  gap: 3rem;
+}
+
+.pitch {
+  display: grid;
+  gap: 1.75rem;
+  align-content: start;
+}
+
+.statement {
+  font-size: clamp(1.9rem, 4vw, 3.4rem);
+  line-height: 1.08;
+  max-width: 18ch;
+}
+
+.email {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  justify-self: start;
+  max-width: 100%;
+  padding-block: 0.4rem;
+  color: var(--ink);
+}
+
+.emailText {
+  font-size: clamp(1.15rem, 2.6vw, 1.9rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 2px;
+  transition: background-size 0.45s var(--ease);
+}
+
+.emailIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--accent-ink);
+  transition: transform 0.45s var(--ease);
+}
+
+.email:hover .emailText {
+  background-size: 100% 0.5em;
+}
+
+.email:hover .emailIcon {
+  transform: translate(3px, -3px) rotate(8deg);
+}
+
+.note {
+  color: var(--ink-3);
+  font-size: 0.92rem;
+  max-width: 44ch;
+}
+
+.channels {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.list {
+  display: grid;
+}
+
+.channel {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 56px;
+  padding-block: 0.5rem;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  transition: padding-left 0.35s var(--ease), color 0.35s var(--ease);
+}
+
+.list li:last-child .channel {
+  border-bottom: 1px solid var(--line);
+}
+
+.channelLabel {
+  font-weight: 600;
+  flex: none;
+}
+
+.handle {
+  flex: 1;
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+  overflow-wrap: anywhere;
+}
+
+.channel svg {
+  margin-left: auto;
+  flex: none;
+  color: var(--ink-3);
+  transition: transform 0.35s var(--ease), color 0.35s var(--ease);
+}
+
+.channel:hover {
+  padding-left: 0.5rem;
+  color: var(--accent);
+}
+
+.channel:hover svg {
+  color: var(--accent);
+  transform: translate(2px, -2px);
+}
+
+.details {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.details div {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.details dd {
+  font-weight: 500;
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: 7fr 4fr;
+    gap: 5rem;
+  }
+}

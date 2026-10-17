@@ -1,0 +1,92 @@
+.footer {
+  border-top: 1px solid var(--line);
+  margin-top: clamp(3rem, 8vw, 6rem);
+  background: linear-gradient(180deg, transparent, var(--bg-elev));
+}
+
+.inner {
+  display: grid;
+  gap: 2.5rem;
+  padding-block: clamp(2.5rem, 6vw, 4.5rem) 2.5rem;
+}
+
+.brandBlock {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.wordmark {
+  font-size: clamp(2.2rem, 5vw, 3rem);
+}
+
+.tagline {
+  color: var(--ink-3);
+  font-size: 0.9rem;
+}
+
+.col {
+  display: grid;
+  gap: 0.9rem;
+  align-content: start;
+}
+
+.col ul {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.col a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding-block: 0.25rem;
+  font-size: 0.95rem;
+  color: var(--ink-2);
+  transition: color 0.3s var(--ease);
+}
+
+.col a:hover {
+  color: var(--ink);
+}
+
+.col svg {
+  width: 14px;
+  height: 14px;
+  opacity: 0.6;
+}
+
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1.25rem 2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.top {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--ink-2);
+  padding-block: 0.25rem;
+}
+
+.top svg {
+  transition: transform 0.35s var(--ease);
+}
+
+.top:hover svg {
+  transform: translateY(-3px);
+}
+
+@media (min-width: 720px) {
+  .inner {
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 2rem;
+  }
+}

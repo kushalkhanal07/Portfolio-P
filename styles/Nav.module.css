@@ -1,0 +1,273 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  height: var(--header-h);
+  transition:
+    background-color 0.4s var(--ease),
+    border-color 0.4s var(--ease),
+    backdrop-filter 0.4s var(--ease);
+  border-bottom: 1px solid transparent;
+}
+
+.scrolled {
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom-color: var(--line);
+}
+
+.menuOpen {
+  background: var(--bg);
+  border-bottom-color: var(--line);
+}
+
+.bar {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-size: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.mark {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  background: var(--accent);
+  transform: rotate(45deg);
+  transition: transform 0.6s var(--ease);
+}
+
+.brand:hover .mark {
+  transform: rotate(225deg);
+}
+
+.desktopNav {
+  display: none;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.link {
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem 0;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  transition: color 0.3s var(--ease);
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.1rem;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s var(--ease);
+}
+
+.link:hover,
+.link[aria-current='page'] {
+  color: var(--ink);
+}
+
+.link:hover::after,
+.link[aria-current='page']::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  position: relative;
+  z-index: 2;
+}
+
+.brandName {
+  white-space: nowrap;
+}
+
+/* Specific enough to beat the global .btn display rule regardless of CSS order. */
+.actions .cta {
+  display: none;
+  min-height: 44px;
+  padding-inline: 1.15rem;
+  font-size: 0.875rem;
+}
+
+.menuButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+}
+
+.burger {
+  position: relative;
+  width: 18px;
+  height: 12px;
+}
+
+.burger span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: var(--ink);
+  transition: transform 0.4s var(--ease), top 0.4s var(--ease);
+}
+
+.burger span:first-child {
+  top: 0;
+}
+
+.burger span:last-child {
+  top: 10px;
+}
+
+.menuOpen .burger span:first-child {
+  top: 5px;
+  transform: rotate(45deg);
+}
+
+.menuOpen .burger span:last-child {
+  top: 5px;
+  transform: rotate(-45deg);
+}
+
+/* Mobile overlay ---------------------------------------------------- */
+.overlay {
+  position: fixed;
+  inset: var(--header-h) 0 0 0;
+  background: var(--bg);
+  visibility: hidden;
+  opacity: 0;
+  clip-path: inset(0 0 100% 0);
+  transition:
+    opacity 0.45s var(--ease),
+    clip-path 0.6s var(--ease),
+    visibility 0s linear 0.6s;
+  overflow-y: auto;
+}
+
+.overlayOpen {
+  visibility: visible;
+  opacity: 1;
+  clip-path: inset(0 0 0 0);
+  transition:
+    opacity 0.3s var(--ease),
+    clip-path 0.6s var(--ease),
+    visibility 0s;
+}
+
+.overlayInner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+  padding-block: 2rem 2.5rem;
+}
+
+.overlayLinks li {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+
+.overlayOpen .overlayLinks li {
+  opacity: 1;
+  transform: none;
+}
+
+.overlayLink {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: clamp(2.4rem, 10vw, 3.6rem);
+  color: var(--ink);
+}
+
+.overlayLink[aria-current='page'] {
+  color: var(--accent);
+}
+
+.overlayIndex {
+  font-size: 0.75rem;
+  color: var(--ink-3);
+  letter-spacing: 0.1em;
+}
+
+.overlayFooter {
+  display: grid;
+  gap: 1.25rem;
+  padding-top: 2.5rem;
+}
+
+.overlayEmail {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.overlaySocials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+.overlaySocials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem 0;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+@media (min-width: 900px) {
+  .desktopNav {
+    display: block;
+  }
+
+  .actions .cta {
+    display: inline-flex;
+  }
+
+  .menuButton,
+  .overlay {
+    display: none;
+  }
+}

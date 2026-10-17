@@ -1,26 +1,44 @@
-import ProjectCard from '@/components/ProjectCard';
-import { projects } from '@/data/projects';
-
-import styles from '@/styles/ProjectsPage.module.css';
+import PageIntro from '@/components/PageIntro';
+import FeaturedWork from '@/components/sections/FeaturedWork';
+import MoreWork from '@/components/sections/MoreWork';
+import ContactCta from '@/components/sections/ContactCta';
+import { featuredProjects, otherProjects, projects } from '@/data/projects';
 
 const ProjectsPage = () => {
   return (
-    <div className={styles.layout}>
-      <h1 className={styles.pageTitle}>Projects I have built so far</h1>
-     
-
-      <div className={styles.container}>
-        {projects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
-        ))}
-      </div>
-    </div>
+    <>
+      <PageIntro
+        eyebrow={`Work · ${projects.length} projects`}
+        title={
+          <>
+            Things I’ve <em>shipped.</em>
+          </>
+        }
+        lead="Production websites and product interfaces built with React, Next.js and TypeScript. Each one links to the live site."
+      />
+      <FeaturedWork
+        index="01"
+        projects={featuredProjects}
+        title={
+          <>
+            Featured <em>projects</em>
+          </>
+        }
+        meta="Case studies"
+      />
+      <MoreWork index="02" projects={otherProjects} startAt={featuredProjects.length + 1} />
+      <ContactCta index="03" />
+    </>
   );
 };
 
 export async function getStaticProps() {
   return {
-    props: { title: 'Projects' },
+    props: {
+      title: 'Work',
+      description:
+        'Selected projects by Kushal Khanal: Net Zero Careers Job Portal, AakashTech, Expert Education and more, built with React, Next.js and TypeScript.',
+    },
   };
 }
 

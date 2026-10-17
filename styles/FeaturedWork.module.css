@@ -1,0 +1,9 @@
+.list {
+  display: grid;
+}
+
+/* The first feature keeps no top rule; following ones separate themselves. */
+.list > :first-child > article {
+  border-top: 0;
+  padding-top: 0;
+}

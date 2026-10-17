@@ -1,0 +1,71 @@
+.grid {
+  display: grid;
+  gap: 3rem;
+}
+
+.story {
+  display: grid;
+  gap: 1.5rem;
+  align-content: start;
+}
+
+.statement {
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.paragraph {
+  color: var(--ink-2);
+  font-size: 1.02rem;
+  max-width: 60ch;
+}
+
+.more {
+  justify-self: start;
+  margin-top: 0.5rem;
+}
+
+.timeline {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.roles {
+  display: grid;
+}
+
+.role {
+  display: grid;
+  gap: 0.2rem;
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.role:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.dates {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-3);
+}
+
+.company {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.position {
+  color: var(--ink-2);
+  font-size: 0.92rem;
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: 7fr 4fr;
+    gap: 5rem;
+  }
+}

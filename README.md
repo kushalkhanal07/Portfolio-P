@@ -1,53 +1,30 @@
-# vscode-portfolio
-[![Open is Visual Studio Code](https://portfolio-gray-alpha-43.vercel.app/projects)](https://portfolio-gray-alpha-43.vercel.app/projects)
+# Kushal Khanal — Portfolio
 
-A Visual Studio Code themed developer portfolio website built with Next.js and deployed on Vercel.
+Personal portfolio of Kushal Khanal, frontend developer in Kathmandu, Nepal. Built with Next.js (Pages Router), React and CSS Modules, and deployed on Vercel.
 
-![vscode-portfolio banner](https://portfolio-gray-alpha-43.vercel.app/projects)
+## Structure
 
-## Features Roadmap
+- `pages/` — `index` (home), `projects`, `about`, `contact`. Routes from the previous layout (`/articles`, `/settings`, `/github`) redirect; see `next.config.ts`.
+- `components/` — layout chrome (`Nav`, `Footer`, `ThemeToggle`), reusable blocks (`ProjectFeature`, `ProjectRow`, `SectionHeading`, `PageIntro`, `Reveal`) and page sections under `components/sections/`.
+- `data/` — all content: `projects.ts` (project entries), `profile.ts` (bio, experience, education, skills) and `site.ts` (name, contact details, social links, navigation).
+- `styles/` — `globals.css` holds the design tokens (light and dark themes), base styles and shared primitives; everything else is a CSS Module.
+- `public/` — project screenshots and the portrait.
 
-- [ ] Themes and customizations
-  - [x] GitHub Dark (default)
-  - [ ] One Dark Pro
-  - [x] Dracula
-  - [x] Ayu
-  - [x] Nord
-- [ ] Interactive custom terminal
+## Editing content
 
-For other features and themes suggestions, please open an issue.
+Add or change a project in `data/projects.ts`. Featured projects (`featured: true`) get a case-study layout (`feature`, `split` or `split-reverse`); the rest appear in the compact list on the work page. Place the screenshot in `public/` and record its pixel width and height so images render without layout shift.
 
-## Environment Variables
+## Environment variables
 
-For fetching your articles from dev.to, create an `.env.local` file inside the project directory. Check the `.env.local.example` file for more information.
+Copy `.env.example` to `.env.local` and set `NEXT_PUBLIC_SITE_URL` to the deployed URL. It is used for canonical and Open Graph tags.
 
-## Running Development Server
+## Development
 
 ```bash
-npm run dev
-# or
-yarn dev
+npm install
+npm run dev     # http://localhost:3000
+npm run lint
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-All VSCode related components can be found in the `components` folder. To change the content of the portfolio, check out the `pages` folder. To add or remove pages, modify `components/Sidebar.jsx` and `components/Tabsbar.jsx`.
-
-## Next.js Resources
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/)
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# portfolio-vs-code
-# Portfolio
-# Portfolio
-# Portfolio
+Fonts are loaded through `next/font/google` (Manrope, Instrument Serif, JetBrains Mono), so the build needs network access to download them.

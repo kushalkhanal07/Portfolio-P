@@ -1,0 +1,80 @@
+.intro {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(2.5rem, 7vw, 5.5rem) clamp(2rem, 5vw, 3.5rem);
+}
+
+.intro::before {
+  content: '';
+  position: absolute;
+  inset: -30% -10% auto -10%;
+  height: 100%;
+  background: radial-gradient(
+    40% 60% at 70% 20%,
+    color-mix(in oklab, var(--accent) 16%, transparent),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  display: grid;
+  gap: 2.5rem;
+}
+
+.copy {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.copy > * {
+  animation: rise 0.9s var(--ease) both;
+}
+
+.copy > *:nth-child(2) {
+  animation-delay: 0.08s;
+}
+
+.copy > *:nth-child(3) {
+  animation-delay: 0.18s;
+}
+
+.eyebrow {
+  color: var(--accent);
+}
+
+.title {
+  font-size: clamp(3rem, 9vw, 7rem);
+  max-width: 12ch;
+}
+
+.lead {
+  font-size: clamp(1.02rem, 1.3vw, 1.2rem);
+  line-height: 1.65;
+  color: var(--ink-2);
+  max-width: 58ch;
+}
+
+.aside {
+  animation: rise 1s 0.25s var(--ease) both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (min-width: 900px) {
+  .inner {
+    grid-template-columns: 8fr 4fr;
+    align-items: end;
+    gap: 3rem;
+  }
+}

@@ -1,104 +1,94 @@
-export interface Project {
-  title: string;
-  description: string;
-  logo: string;
-  link: string;
-  slug: string;
-  frontend: string[];
-  payment: string[];
-  backend: string[];
-  stateManagement:string;
-  database: string | null;
-}
+import type { Project } from '@/types';
 
 export const projects: Project[] = [
   {
-    title: "Greensite Job Portal",
+    slug: 'net-zero-careers',
+    title: 'Net Zero Careers Job Portal',
+    category: 'Careers & job portal',
     description:
-      "Green Site is the UK’s largest careers platform for the net-zero economy—helping job-seekers explore green-jobs, access training courses and find apprenticeships with major employers.",
-    logo: "/greensite.png",
-    link: "https://greensite.wendevs.com/",
-    slug: "greensite",
-    frontend: ["Next.js", "Tailwind", "Shadcn UI", "Zustand"],
-    payment: [],
-    stateManagement:"Zustand",
-    backend: [],
-    database: null,
+      'A careers platform for the UK’s net-zero economy. Job seekers browse live job listings, search training courses and explore detailed career pathways into green industries, while employers list roles and apprenticeships.',
+    image: '/netzero-careers.png',
+    imageAlt:
+      'Net Zero Careers homepage with the headline “Shape the future” beside photographs of solar panels and engineers.',
+    imageWidth: 1919,
+    imageHeight: 871,
+    link: 'https://netzerocareers.co.uk/',
+    accent: '#0e8c86',
+    stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'shadcn/ui', 'Zustand'],
+    highlights: ['Dynamic job listings', 'Training course search', 'Career resources'],
+    role: 'Frontend development',
+    featured: true,
+    layout: 'feature',
   },
   {
-    title: "Furnidecor Ecommerce platform",
+    slug: 'aakashtech',
+    title: 'AakashTech',
+    category: 'Business communication platform',
     description:
-      "FurniDecor is a home-furnishings and décor ecommerce site showcasing furniture and interior design items, offering a curated selection of products and styling inspiration.",
-    logo: "/furnidecor.png",
-    link: "https://decor.wendevs.com/",
-    slug: "furnidecor",
-    frontend: ["Next.js", "Tailwind", "Shadcn UI", "Zustand"],
-    payment: ["Stripe", "paypal"],
-    stateManagement:"Zustand",
-    backend: [],
-    database: null,
+      'A product platform for business communication services covering SMS, WhatsApp, IVR and related channels. I work on the responsive product interfaces and integrate service data through the platform’s REST APIs.',
+    image: '/aakashtel.png',
+    imageAlt:
+      'AakashTech sign-in screen with admin and team login tabs beside an isometric illustration of a user unlocking a dashboard.',
+    imageWidth: 1911,
+    imageHeight: 823,
+    link: 'https://aakashtech.aakashdial.com/',
+    accent: '#2f9e4f',
+    stack: ['React', 'Next.js', 'TypeScript', 'REST APIs'],
+    highlights: ['SMS, WhatsApp & IVR services', 'Admin and team portals'],
+    role: 'Frontend development',
+    featured: true,
+    layout: 'split',
   },
   {
-    title:
-      "PMS-Project management System (similar features to slack and trello)",
+    slug: 'expert-education',
+    title: 'Expert Education',
+    category: 'Education consultancy & events',
     description:
-      "A project management system to manage tasks within teams with collaboration.",
-    logo: "/pms.png",
-    link: "https://projects.wendevs.com/pms-frontend/",
-    slug: "pms-project-management-system",
-    frontend: ["React", "Tailwind", "Shadcn UI", "Zustand"],
-    payment: [],
-    stateManagement:"Zustand",
-    backend: ["Node.js"],
-    database: "MongoDB",
+      'An education consultancy and events platform that connects students with study-abroad opportunities. It brings together event listings, contact management and multilingual support for an international audience.',
+    image: '/expertEducation.png',
+    imageAlt:
+      'Expert Education events homepage with the headline “Welcome to Expert Events” beside a photo of a speaker addressing an audience.',
+    imageWidth: 1893,
+    imageHeight: 826,
+    link: 'https://events.experteducation.com/en',
+    accent: '#1ab7dc',
+    stack: [],
+    highlights: ['Event listings', 'Contact management', 'Multilingual support'],
+    role: 'Frontend development',
+    featured: true,
+    layout: 'split-reverse',
   },
   {
-    title: "Kinimini Multivendor Ecommerce",
+    slug: 'hyberlab',
+    title: 'Hyberlab IT Solutions',
+    category: 'Company website',
     description:
-      "Multivendor Ecommerce Site with admin panels for vendors , admin.",
-    logo: "/kinimini.png",
-    link: "https://kinimini.com.np/",
-    slug: "driwwwle",
-    frontend: ["Next.js", "Tailwind", "Shadcn UI", "Zustand"],
-    payment: ["Esewa", "Khalti"],
-    backend: ["Node.js"],
-    stateManagement:"Context API",
-    database: "MongoDB",
+      'Official website for Hyberlab IT Solutions, presenting the company’s services and consultation offering.',
+    image: '/hyberlab.png',
+    imageAlt: 'Hyberlab IT Solutions homepage.',
+    imageWidth: 341,
+    imageHeight: 173,
+    link: 'https://www.hyberlab.com/',
+    accent: '#6d5cff',
+    stack: ['Next.js', 'Tailwind CSS', 'React Query'],
+    featured: false,
   },
   {
-    title: "Hyberlab IT Solutions Profile",
-    description: "Official website of Hyberlab IT Solutions, an IT Company.",
-    logo: "/hyberlab.png",
-    link: "https://www.hyberlab.com/",
-    slug: "vscode-portfolio",
-    frontend: ["Next.js", "Tailwind", "React-query"],
-    payment: [],
-    backend: [],
-    stateManagement:"Context API",
-    database: null,
-  },
-  {
-    title: "Siddhartha Hardwares",
-    description: "A Website for electronic item seller.",
-    logo: "/Siddhartha.png",
-    link: "https://www.siddharthahardwares.com/",
-    slug: "subtrackt",
-    frontend: ["Next.js", "Tailwind"],
-    payment: [],
-    backend: ["Node.js"],
-    stateManagement:"Context API",
-    database: null,
-  },
-  {
-    title: "SND Cares",
-    description: "A basic website for local hardware shop.",
-    logo: "/SND cares.png",
-    link: "https://www.sndcares.com/",
-    slug: "coolify-vscode-extension",
-    frontend: ["Next.js", "Tailwind", "Material UI"],
-    payment: [],
-    backend: [],
-    stateManagement:"Context API",
-    database: null,
+    slug: 'siddhartha-hardwares',
+    title: 'Siddhartha Hardwares',
+    category: 'Retail website',
+    description:
+      'Website for a hardware retailer, with a product catalogue, categories and store information.',
+    image: '/Siddhartha.png',
+    imageAlt: 'Siddhartha Hardwares homepage.',
+    imageWidth: 342,
+    imageHeight: 172,
+    link: 'https://www.siddharthahardwares.com/',
+    accent: '#d13b2f',
+    stack: ['Next.js', 'Tailwind CSS', 'Node.js'],
+    featured: false,
   },
 ];
+
+export const featuredProjects = projects.filter((project) => project.featured);
+export const otherProjects = projects.filter((project) => !project.featured);

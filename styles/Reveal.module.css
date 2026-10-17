@@ -1,0 +1,22 @@
+:global(html.js) .reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.8s var(--ease),
+    transform 0.9s var(--ease);
+  will-change: opacity, transform;
+}
+
+:global(html.js) .shown {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :global(html.js) .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

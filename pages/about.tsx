@@ -1,61 +1,68 @@
+import Image from 'next/image';
+
+import PageIntro from '@/components/PageIntro';
+import Experience from '@/components/sections/Experience';
+import Skills from '@/components/sections/Skills';
+import ContactCta from '@/components/sections/ContactCta';
+import { bio } from '@/data/profile';
+import { site } from '@/data/site';
+
 import styles from '@/styles/AboutPage.module.css';
 
 const AboutPage = () => {
   return (
-    <div className={styles.container}>
-      <div className={styles.content}>
-        <h1 className={styles.title}>Kushal Khanal</h1>
-        <div className={styles.subtitle}>Software Engineer</div>
+    <>
+      <PageIntro
+        eyebrow="About"
+        title={
+          <>
+            Kushal <em>Khanal</em>
+          </>
+        }
+        lead={bio[0]}
+      >
+        <figure className={styles.portrait}>
+          <div className={styles.plate}>
+            <Image
+              src="/Kushal.jpeg"
+              alt={`Portrait of ${site.name}`}
+              width={800}
+              height={800}
+              priority
+              sizes="(max-width: 900px) 60vw, 320px"
+              className={styles.image}
+            />
+          </div>
+          <figcaption className={`mono ${styles.caption}`}>
+            <span>{site.role}</span>
+            <span>{site.location}</span>
+          </figcaption>
+        </figure>
+      </PageIntro>
 
-        <div className={styles.aboutContent}>
-          <section className={styles.section}>
-            <p className={styles.paragraph}>
-              Hey! I&apos;m a software engineer from Kathmandu, Nepal. I primarily
-              work with JavaScript / TypeScript, React, Next.js and the Node.js ecosystem.
-            </p>
-            <p className={styles.paragraph}>
-              I&apos;m focused on frontend development with React, but
-              you&apos;ll also find me working with Node.js, MongoDB and Express
-              while building the backend for my personal projects.
-            </p>
-          </section>
-
-          <section className={styles.section}>
-            <h2 className={styles.sectionTitle}>Experience</h2>
-            <p className={styles.paragraph}>
-              I worked at <span className={styles.highlight}>Hyberlab</span> for about one year as a <span className={styles.highlight}>Frontend Developer</span>, contributing to the design and development of dynamic web interfaces, and for three months as a <span className={styles.highlight}>Backend Developer</span>. I am currently working at <span className={styles.highlight}>Web Experts</span> as a <span className={styles.highlight}>Frontend Web Developer</span> (4 months), focusing on developing responsive, user-friendly web applications using <span className={styles.highlight}>modern JavaScript frameworks</span> and tools.
-            </p>
-            
-          </section>
-
-          {/* <section className={styles.section}>
-            <h2 className={styles.sectionTitle}>Writing</h2>
-            <p className={styles.paragraph}>
-              I&apos;ve had the pleasure of writing for some amazing
-              publications like{' '}
-              <span className={styles.highlight}>100ms Blog</span>,{' '}
-              <span className={styles.highlight}>LogRocket Blog</span>,{' '}
-              <span className={styles.highlight}>DEV.to</span> and more as a
-              freelance technical author.
-            </p>
-          </section> */}
-
-          {/* <section className={styles.section}>
-            <h2 className={styles.sectionTitle}>Beyond Code</h2>
-            <p className={styles.paragraph}>
-              Aside from programming and writing, I like to read a good
-              dystopian novel, listen to calm piano music or just laze around.
-            </p>
-          </section> */}
+      <section className={`section ${styles.story}`} aria-label="Introduction">
+        <div className="container">
+          <div className={styles.storyGrid}>
+            <p className="eyebrow">In short</p>
+            <p className={`display ${styles.statement}`}>{bio[1]}</p>
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+
+      <Experience />
+      <Skills />
+      <ContactCta index="04" />
+    </>
   );
 };
 
 export async function getStaticProps() {
   return {
-    props: { title: 'About' },
+    props: {
+      title: 'About',
+      description:
+        'About Kushal Khanal: a frontend developer from Kathmandu, Nepal with 2+ years of experience in React, Next.js and TypeScript.',
+    },
   };
 }
 

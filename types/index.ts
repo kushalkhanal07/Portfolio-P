@@ -1,42 +1,45 @@
-export interface Article {
-  id: string;
-  title: string;
-  description: string;
-  cover_image: string;
-  url: string;
-  page_views_count: number;
-  public_reactions_count: number;
-  comments_count: number;
-}
+export type FeaturedLayout = 'feature' | 'split' | 'split-reverse';
 
 export interface Project {
-  title: string;
-  description: string;
-  logo: string;
-  link: string;
+  /** Stable id, also used as the DOM anchor on the work page. */
   slug: string;
-  frontend: string[];
-  payment: string[];
-  backend: string[];
-  stateManagement:string;
-  database: string | null;
-}
-
-export interface Repo {
-  id: number;
-  name: string;
+  title: string;
+  /** Short category shown in the eyebrow and list rows. */
+  category: string;
   description: string;
-  language: string;
-  watchers: number;
-  forks: number;
-  stargazers_count: number;
-  html_url: string;
-  homepage: string;
+  /** Public asset path, e.g. "/aakashtel.png". */
+  image: string;
+  imageAlt: string;
+  imageWidth: number;
+  imageHeight: number;
+  link: string;
+  /** Brand colour of the project, used for tints and glows. */
+  accent: string;
+  /** Verified technologies. Left empty when the stack is not documented. */
+  stack: string[];
+  /** Product highlights taken from the project notes. */
+  highlights?: string[];
+  role?: string;
+  featured: boolean;
+  layout?: FeaturedLayout;
 }
 
-export interface User {
-  login: string;
-  avatar_url: string;
-  public_repos: number;
-  followers: number;
+export interface ExperienceEntry {
+  company: string;
+  role: string;
+  start: string;
+  end: string;
+  summary: string;
+  bullets: string[];
+}
+
+export interface SkillGroup {
+  label: string;
+  items: string[];
+}
+
+export interface SocialLink {
+  label: string;
+  handle: string;
+  href: string;
 }

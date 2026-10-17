@@ -1,43 +1,26 @@
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-
-import Titlebar from '@/components/Titlebar';
-import Sidebar from '@/components/Sidebar';
-import Explorer from '@/components/Explorer';
-import Bottombar from '@/components/Bottombar';
-import Tabsbar from '@/components/Tabsbar';
+import Nav from '@/components/Nav';
+import Footer from '@/components/Footer';
 
 import styles from '@/styles/Layout.module.css';
 
 interface LayoutProps {
   children: React.ReactNode;
+  /** Class names from next/font that expose the --font-* custom properties. */
+  fontClassName?: string;
 }
 
-const Layout = ({ children }: LayoutProps) => {
-  // set scroll to top of main content on url pathname change
-  const router = useRouter();
-  useEffect(() => {
-    const main = document.getElementById('main-editor');
-    if (main) {
-      main.scrollTop = 0;
-    }
-  }, [router.pathname]);
-
+const Layout = ({ children, fontClassName = '' }: LayoutProps) => {
   return (
-    <>
-      <Titlebar />
-      <div className={styles.main}>
-        <Sidebar />
-        <Explorer />
-        <div style={{ width: '100%' }}>
-          <Tabsbar />
-          <main id="main-editor" className={styles.content}>
-            {children}
-          </main>
-        </div>
-      </div>
-      <Bottombar />
-    </>
+    <div className={`${styles.root} ${fontClassName}`}>
+      <a href="#main" className="skipLink">
+        Skip to content
+      </a>
+      <Nav />
+      <main id="main" className={styles.main}>
+        {children}
+      </main>
+      <Footer />
+    </div>
   );
 };
 

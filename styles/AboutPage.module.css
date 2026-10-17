@@ -1,87 +1,66 @@
-.container {
-  max-width: 900px;
-  height: 100%;
-  margin: 0 auto;
-  padding: 3rem 1.5rem;
-  color: var(--text-color);
+.portrait {
+  display: grid;
+  gap: 0.75rem;
+  width: min(100%, 300px);
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.plate {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--r-lg);
+  background: var(--accent);
+  isolation: isolate;
+  box-shadow: var(--shadow-lg);
 }
 
-.title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: var(--accent-color);
-  letter-spacing: -0.03em;
-}
-
-.subtitle {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
-  margin-bottom: 3rem;
-}
-
-.aboutContent {
+.image {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;
+  filter: grayscale(1) contrast(1.08);
+  mix-blend-mode: multiply;
+  transition: filter 0.8s var(--ease);
 }
 
-.section {
-  margin-bottom: 2.5rem;
+.portrait:hover .image {
+  filter: grayscale(0) contrast(1.02);
 }
 
-.section:last-child {
-  margin-bottom: 0;
+.caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-3);
 }
 
-.sectionTitle {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: var(--accent-color);
+.story {
+  padding-top: 0;
 }
 
-.paragraph {
-  margin-bottom: 1.25rem;
-  line-height: 1.7;
-  color: var(--text-color);
-  font-size: 1rem;
+.storyGrid {
+  display: grid;
+  gap: 1rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--ink);
 }
 
-.paragraph:last-child {
-  margin-bottom: 0;
+.statement {
+  font-size: clamp(1.5rem, 2.8vw, 2.4rem);
+  line-height: 1.2;
+  max-width: 34ch;
 }
 
-.highlight {
-  color: var(--accent-color);
-  font-weight: 500;
-}
-
-@media screen and (max-width: 600px) {
-  .container {
-    padding: 2rem 1rem;
+@media (min-width: 900px) {
+  .portrait {
+    justify-self: end;
   }
 
-  .title {
-    font-size: 2rem;
-  }
-
-  .subtitle {
-    font-size: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  .sectionTitle {
-    font-size: 1.2rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .paragraph {
-    font-size: 0.95rem;
-    line-height: 1.65;
+  .storyGrid {
+    grid-template-columns: 240px 1fr;
+    gap: 2rem;
   }
 }

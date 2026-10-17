@@ -1,13 +1,14 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  images: {
-    remotePatterns: [
-      { hostname: 'res.cloudinary.com', protocol: 'https' },
-      { hostname: 'avatars.githubusercontent.com', protocol: 'https' },
-      { hostname: 'imgur.com', protocol: 'https' },
-      { hostname: 'media2.dev.to', protocol: 'https' },
-    ],
+  reactStrictMode: true,
+  async redirects() {
+    return [
+      // Routes from the previous VS Code-themed layout that no longer have pages.
+      { source: '/articles', destination: '/', permanent: false },
+      { source: '/settings', destination: '/', permanent: false },
+      { source: '/github', destination: 'https://github.com/kushalkhanal07', permanent: false },
+    ];
   },
 };
 

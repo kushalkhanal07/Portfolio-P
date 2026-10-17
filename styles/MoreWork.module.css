@@ -1,0 +1,4 @@
+.rows {
+  display: grid;
+  border-bottom: 1px solid var(--line);
+}

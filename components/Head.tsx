@@ -1,35 +1,44 @@
-import Head from 'next/head';
+import NextHead from 'next/head';
+import { useRouter } from 'next/router';
+
+import { site } from '@/data/site';
 
 interface CustomHeadProps {
-  title: string;
+  title?: string;
+  description?: string;
 }
 
-const CustomHead = ({ title }: CustomHeadProps) => {
+const CustomHead = ({ title, description }: CustomHeadProps) => {
+  const { asPath } = useRouter();
+  const fullTitle = title ? `${title} · ${site.name}` : `${site.name} · ${site.role}`;
+  const metaDescription = description ?? site.description;
+  const path = asPath.split(/[?#]/)[0];
+  const canonical = `${site.url}${path === '/' ? '' : path}`;
+  const image = `${site.url}/Kushal.jpeg`;
+
   return (
-    <Head>
-      <title>{title}</title>
-      <meta
-        name="description"
-        content="Kushal Khanal is an avid full stack web developer building websites and applications you'd love to use"
-      />
-      <meta
-        name="keywords"
-        content="Kushal Khanal, nitin, ranganath, web developer portfolio, nitin web developer, nitin developer, mern stack, Kushal Khanal portfolio, vscode-portfolio"
-      />
-      <meta property="og:title" content="Kushal Khanal's Portfolio" />
-      <meta
-        property="og:description"
-        content="A full-stack developer building websites that you'd like to use."
-      />
-      <meta property="og:image" content="https://imgur.com/4zi5KkQ.png" />
-      <meta property="og:url" content="https://vscode-portfolio.vercel.app" />
-      <meta name="twitter:card" content="summary_large_image" />
-    </Head>
+    <NextHead>
+      <title>{fullTitle}</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="description" content={metaDescription} />
+      <meta name="keywords" content={site.keywords} />
+      <meta name="author" content={site.name} />
+      <link rel="canonical" href={canonical} />
+
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content={`${site.name} · Portfolio`} />
+      <meta property="og:title" content={fullTitle} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:url" content={canonical} />
+      <meta property="og:image" content={image} />
+      <meta property="og:image:alt" content={`Portrait of ${site.name}`} />
+
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={metaDescription} />
+      <meta name="twitter:image" content={image} />
+    </NextHead>
   );
 };
 
 export default CustomHead;
-
-CustomHead.defaultProps = {
-  title: 'Kushal Khanal',
-};

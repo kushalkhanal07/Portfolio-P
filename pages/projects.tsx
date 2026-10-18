@@ -37,7 +37,7 @@ export async function getStaticProps() {
     props: {
       title: 'Work',
       description:
-        'Selected projects by Kushal Khanal: Net Zero Careers Job Portal, AakashTech, Expert Education and more, built with React, Next.js and TypeScript.',
+        'Selected projects by Kushal Khanal: Net Zero Careers Job Portal, AakashTech, the Aakashtel Windows desktop app, Expert Education and more, built with React, Next.js, Electron and TypeScript.',
     },
   };
 }

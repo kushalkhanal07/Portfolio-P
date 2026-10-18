@@ -17,7 +17,7 @@ export default function HomePage() {
             Selected <em>work</em>
           </>
         }
-        meta="Three production projects"
+        meta="Four production projects"
         action={{ href: '/projects', label: 'All work' }}
       />
       <AboutTeaser />

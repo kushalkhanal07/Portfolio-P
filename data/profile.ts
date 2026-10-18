@@ -28,6 +28,7 @@ export const experience: ExperienceEntry[] = [
     bullets: [
       'Build responsive, data-driven interfaces with React, Next.js and TypeScript.',
       'Integrate backend REST APIs and third-party services for SMS, WhatsApp and IVR products.',
+      'Packaged the Aakashtel dialer as an Electron desktop app and automated its Microsoft Store releases.',
       'Collaborate with the team to deliver features, troubleshoot issues and improve existing functionality.',
     ],
   },
@@ -67,7 +68,7 @@ export const education = {
 
 export const skills: SkillGroup[] = [
   { label: 'Languages', items: ['JavaScript (ES6+)', 'TypeScript', 'Node.js'] },
-  { label: 'Frontend', items: ['React', 'Next.js', 'React Flow', 'Socket.io'] },
+  { label: 'Frontend', items: ['React', 'Next.js', 'Electron', 'React Flow', 'Socket.io'] },
   {
     label: 'State & data',
     items: ['Redux Toolkit', 'React Context API', 'Zustand', 'React Query'],

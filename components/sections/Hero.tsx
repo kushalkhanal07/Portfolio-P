@@ -35,20 +35,25 @@ const Hero = () => {
         </div>
 
         <figure className={styles.portrait}>
-          <div className={styles.portraitPlate}>
-            <Image
-              src="/Kushal.jpeg"
-              alt={`Portrait of ${site.name}`}
-              width={800}
-              height={800}
-              priority
-              sizes="(max-width: 900px) 70vw, 360px"
-              className={styles.portraitImg}
-            />
+          <div className={styles.portraitFrame}>
+            <div className={styles.portraitPlate}>
+              <Image
+                src="/Kushal.jpeg"
+                alt={`Portrait of ${site.name}`}
+                width={800}
+                height={800}
+                priority
+                sizes="(max-width: 900px) 70vw, 360px"
+                className={styles.portraitImg}
+              />
+            </div>
           </div>
-          <figcaption className={`mono ${styles.caption}`}>
-            <span>{site.name}</span>
-            <span>{site.availability}</span>
+          <figcaption className={styles.caption}>
+            <span className={styles.captionName}>{site.name}</span>
+            <span className={styles.status}>
+              <span className={styles.statusDot} aria-hidden="true" />
+              {site.availability}
+            </span>
           </figcaption>
         </figure>
       </div>
